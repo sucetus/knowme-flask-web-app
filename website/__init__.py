@@ -18,32 +18,30 @@ def create_app():
     # postgres://knowme_postgresql_user:6jp6v2hGpJD3VFlv9OgrgyjugDnnzwcG@dpg-ch8n151jvhtqmk2bpo70-a.oregon-postgres.render.com/knowme_postgresql
     db.init_app(app)
 
-    from .views import views
-    from .auth import auth
+    with app.app_context():
+        from .views import views
+        from .auth import auth
 
-    app.register_blueprint(views, url_prefix = '/')
-    app.register_blueprint(auth, url_prefix = '/')
+        app.register_blueprint(views, url_prefix = '/')
+        app.register_blueprint(auth, url_prefix = '/')
 
-    create_database(app)
+        create_database(app)
 
-    from .models import User, Stats
+        from .models import User, Stats
 
-    login_manager = LoginManager()
-    login_manager.login_view = "auth.login"
-    login_manager.init_app(app)
+        login_manager = LoginManager()
+        login_manager.login_view = "auth.login"
+        login_manager.init_app(app)
 
-    @login_manager.user_loader
-    def load_user(id):
-        return User.query.get(int(id))
-
-    # @app.route("/dead1", methods=['GET', 'POST'])
-    # def statimage():
-    #     return app.send_static_file('dead1.html')
+        @login_manager.user_loader
+        def load_user(id):
+            return User.query.get(int(id))
 
     return app
 
 
 def create_database(app):
-    if not path.exists('website' + DB_NAME):
-        db.create_all()
-        print('Database Created')
+    with app.app_context():
+        if not path.exists('website' + DB_NAME):
+            db.create_all()
+            print('Database Created')
