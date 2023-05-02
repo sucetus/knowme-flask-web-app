@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %} Level 4 {% endblock %}
+
+{% block content%}
+
+{% if user.stats.level == 3 %}
+<h2 align="center" style="margin-bottom: 50px; background: linear-gradient(to right,  #99ff5a, rgb(0, 204, 255));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; font-weight: 700;"> Level 4! </h2>
+<h2 align="center" style="margin-bottom: 50px; color: aliceblue;"> Crack the <span style="margin-bottom: 50px; background: linear-gradient(to top,  #82ff80, rgb(255, 255, 255));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;"> GenZ</span> lingo.</h2>
+
+        <div style="text-align: center; font-size: 1.5em; max-width: 100%; color: aliceblue;">
+            As you can tell, I'm a GenZ guy, tryna crack this down. Kay?
+            <p>Your answer is <span style="background: linear-gradient(to right, #f2fcff, rgb(117, 255, 135)); color: rgb(0, 0, 0);">combination of all 'lies'</span> in the given sentence. So here ya go!</p>
+        </div>
+
+        <div class="box">
+            <div class="container-box">
+                <p style="font-size: larger; color: rgb(255, 255, 255);">
+                    Max And Richard are Very Energetic as well as Lazy.
+                </p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <br>
+                    <form method="post">
+                        <div class="form-group d-flex justify-content-center">
+                        <input
+                            type = 'answer'
+                            class="form-control"
+                            id = 'answer'
+                            name = "answer"
+                            placeholder="Type in your Answer"
+                        />
+                        </div>
+                        <br/>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-light">Go!</button>
+                          </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% else %}
+    <h4> Access Denied </h4>
+    <a href="/"> <p> Go to Home </p> </a>
+{% endif %}
+
+{% block css %}
+<style>
+    body {
+    padding-top: 60px;
+    background-color: #000000;
+    }
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        /* height: 100vh; */
+      }
+      
+      /* Set max-width to 80% of the viewport width and add padding */
+      .container-box {
+        max-width: 80%;
+        /* padding: 20px; */
+        padding-bottom: 5px;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border: 2px solid rgb(111, 255, 138);
+        border-radius: 5px;
+      }
+      
+      /* Make the box responsive to smaller screens */
+      @media screen and (max-width: 600px) {
+        .container-box {
+          max-width: 100%;
+        }
+      }
+</style>
+{% endblock %}
+
+{% endblock %}

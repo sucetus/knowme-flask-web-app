@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %} Buffer {% endblock %}
+
+{% block content%}
+{% if user.stats.level == 1 %}
+  
+<div class="container-fluid">
+    <p class="site-description" style="font-size:x-large; text-align: center; color: white; font-weight: 500;">
+        You got it! My Instagram bio says it all. <span style="color: pink;">Libra</span> it is!
+    </p>
+</div>
+
+<img class="zodiac-sign" src="/static/images/libra.png" style="top: 22%; left: 10%; transform: rotate(20deg); z-index: -1;">
+
+<div class="d-flex justify-content-center" style="margin: 20px;">
+    <a href="/{{user.id}}/{{user.stats.level}}/starttimer"><button type="submit" class="btn btn-primary">To level 2 🚀</button></a>
+</div>
+
+{% elif user.stats.level == 3 %}
+
+<div class="container-fluid">
+    <p class="site-description" style="font-size:x-large; text-align: center; color: white; font-weight: 500; margin-top: 20px;">
+        Oh here comes the decoder! 'You are <span style="color: greenyellow;">Good</span>' to go!
+    </p>
+</div>
+
+<div class="d-flex justify-content-center" style="margin: 20px;">
+    <a href="/{{user.id}}/{{user.stats.level}}/starttimer"><button type="submit" class="btn btn-primary">To level 4 🚀</button></a>
+</div>
+
+{% elif user.stats.level == 5 %}
+
+<div class="container-fluid">
+    <p class="site-description" style="font-size:x-large; text-align: center; color: white; font-weight: 500;">
+        Wow, you actually opened my channel? Might as well checkout other videos too 😅.
+    </p>
+    <br>
+    <p class="site-description" style="font-size:x-large; text-align: center; color: white; font-weight: 500;">
+        So many memories in this video!
+    </p>
+</div>
+<br>
+<div style="max-width: 560px; margin: auto; border-radius: 10px; overflow: hidden;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/BziKVSMBpc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+<br>
+<div class="d-flex justify-content-center" style="margin: 20px;">
+    <a href="/{{user.id}}/{{user.stats.level}}/starttimer"><button type="submit" class="btn btn-primary">To level 6 🚀</button></a>
+</div>
+
+{% else %}
+    <p style="margin-top: 50px;">{{user.stats.level}}</p>
+    
+{% endif %}
+
+{% block css%}
+<style>
+    body {
+        background-color: rgb(36, 36, 36);
+        margin-top: 50px;
+    }
+    .zodiac-sign {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            transform: rotate(45deg);
+
+        }
+</style>
+{% endblock %}
+{% endblock %}

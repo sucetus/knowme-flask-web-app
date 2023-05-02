@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %} Admin {% endblock %}
+
+{% block content%}
+    <h2 align="center" style="background: linear-gradient(to right, #a802ba, rgb(195, 58, 4));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; font-weight: 600;">Admin Dashboard</h2>
+    </br>
+    <table>
+        <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Username</th>
+            <th>Level</th>
+            <th>Average time per level</th>
+            <th>Average number of attempts</th>
+            <th>Assessed Soft Skills</th>
+        </tr>
+        </thead>
+    <tbody>
+    {% for li in list_lb %}
+        {% if li[1] != 0 %}
+        <tr>
+            <td >{{ loop.index }}</td>
+            <td>{{ li[0] }}</td>
+            <td>{{ li[1] }}</td>
+            <td>{{ li[2] }}</td>
+            <td>{{ li[3] }}</td>
+            <td>
+                {% for attr in li[4] %}
+                    '{{ attr }}'
+                {% endfor %}
+            </td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+
+    </tbody>
+  </table>
+<br>
+<br>
+
+
+  {% block css %}
+  <style>
+      body {
+      padding-top: 60px;
+      }
+      table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    @media (max-width: 768px) {
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+  {% endblock %}
+{% endblock %}

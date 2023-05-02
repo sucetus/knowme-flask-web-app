@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %} Puzzle Complete {% endblock %}
+
+{% block content%}
+
+<h2 align="center" style="margin-bottom: 50px; color: aliceblue;"><span style="margin-bottom: 50px; background: linear-gradient(to right, rgb(198, 67, 255), #fefa95);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; font-weight: 600;"> There you go! You did it</span> 🌟 
+</h2>
+
+<div class="container-fluid">
+    <p class="site-description" style="font-size: larger; text-align: center; color: white;">
+        You've successfully completed all the levels! Congrats.
+    </p>
+    <p class="site-description" style="font-size: larger; text-align: center; color: white;">
+        This Puzzle was done as a project assignment for eLitmus Summer Internship.
+    </p>
+    <p class="site-description" style="font-size: larger; text-align: center; color: white;">
+        The Website is developed using html, css for front-end, and <span style="text-decoration: underline; text-decoration-color: yellow; text-decoration-thickness: 3px;">Flask</span> (a python web application framework based on WSGI toolkit and jinja template engine) for back-end.
+    </p>
+    <p class="site-description" style="font-size: larger; text-align: center; color: white;">
+        <span style="text-decoration: underline; text-decoration-color: yellow; text-decoration-thickness: 3px;">SQLAlchemy</span> is used for Database Management. I'd love for you to share your thoughts about this website at any of my contacts.
+    </p>
+</div>
+<br>
+<div class="container-fluid">
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/khalidmohammad06/" class="linkedin"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/the-khalid" class="github"><i class="fab fa-github "></i></a>
+        <a href="mailto:thekhalid06@gmail.com" class="email"><i class="fas fa-envelope "></i></a>
+        <a href="https://twitter.com/bannukun" class="twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com/@bannukun" class="youtube"><i class="fab fa-youtube "></i></a>
+        <a href="https://www.instagram.com/bannukun/" class="instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+</div>
+<br>
+<div class="container-fluid">
+    <p style="font-weight: 600;"><a href="/" class="my-link">HOME</a></p>
+    <p style="font-weight: 600;"><a href="/{{user.id}}/dashboard" class="my-link2">Dashboard</a></p>
+  </div>
+  
+<!-- <a href="/{{user.id}}/dashboard"> Dashboard </a> -->
+<div class="container-fluid fixed-bottom bg-dark text-white py-2 banner">
+    <div class="text-center">
+       Made with <i class="fas fa-heart"></i> by Khalid
+    </div>
+</div>
+{% block css %}
+<style>
+    body {
+    padding-top: 60px;
+    background-color: #000000;
+    }
+    .my-link {
+  display: block;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: none;
+  transition: color 0.3s ease-in-out;
+}
+.my-link2 {
+  display: block;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.my-link:hover {
+  color: #dbacff;
+}
+.my-link2:hover {
+  color: #d7ffac;
+}
+
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .social-icons a {
+    margin: 0 20px;
+    font-size: 24px;
+    /* color: #333; */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    color: white;
+  }
+  
+  .youtube:hover {
+    color: red;
+  }
+  
+  .linkedin:hover {
+    color: rgb(48, 55, 251);
+  }
+
+  .instagram:hover {
+    color: rgb(247, 0, 255);
+  }
+  
+  .twitter:hover {
+    color: rgb(86, 144, 224);
+  }
+  
+  .github:hover {
+    color: purple;
+  }
+  
+  .email:hover {
+    color: rgb(35, 49, 251);
+  }
+  @media (max-width: 768px) {
+  .my-link {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+  .my-link2 {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+</style>
+{% endblock %}
+{% endblock %}

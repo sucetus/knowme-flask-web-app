@@ -1,0 +1,150 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+  
+  .profile-img {
+    text-align: center;
+    /* margin-top: 20px; */
+  }
+  
+  a {
+    color: blue;
+    text-decoration: none;
+    padding: 2px;
+    transition: border-bottom 0.3s ease-in-out;
+  }
+  
+  a:hover {
+    color: black;
+  }
+  
+.profile-img img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin: 50px auto 0;
+  }
+
+.gradient-text {
+	background: linear-gradient(to bottom, #ffffff, #ffa600,#ffa600);
+	-webkit-background-clip: text;
+    background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: bold;
+}
+
+.gradient-text2 {
+	background: linear-gradient(to right, #a500ae, #fffb00);
+	-webkit-background-clip: text;
+    background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: bold;
+}
+
+.site-description {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+@media (max-width: 767px) {
+    .site-description {
+      font-size: 16px;
+      padding: 0 20px;
+    }
+  }
+  
+.section-header {
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    max-width: 800px;
+  }
+  
+.section-header h3 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .social-icons a {
+    margin: 0 10px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .youtube:hover {
+    color: red;
+  }
+  
+  .linkedin:hover {
+    color: rgb(0, 8, 255);
+  }
+
+  .instagram:hover {
+    color: rgb(247, 0, 255);
+  }
+  
+  .twitter:hover {
+    color: rgb(86, 144, 224);
+  }
+  
+  .github:hover {
+    color: black;
+  }
+  
+  .email:hover {
+    color: rgb(0, 17, 255);
+  }
+
+  .banner {
+    position: fixed;
+    padding: 5px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .logindiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    
+  }
+
+  .logindiv2 {
+    width: 400px;
+    background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #ccc;
+  }
+
+  .flashes {
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
+  }
+@media (max-width: 768px) {
+    .flashes {
+        font-size: 12px;
+        max-width: none;
+        margin-top: 50px;
+    }
+}

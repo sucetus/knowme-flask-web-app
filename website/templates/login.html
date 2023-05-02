@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %} Login {% endblock %}
+
+{% block content%}
+
+<div class="container-fluid logindiv">
+<div class="logindiv2">
+<form method="post">
+    <h3 align="center">Log in!</h3>
+
+    <div class="form-group">
+        <label for="email" style="margin: 5px;">Email Address</label>
+        <input
+            type = 'email'
+            class="form-control"
+            id = 'email'
+            name = "email"
+            placeholder="Enter your Email"
+        />
+    </div>
+
+    <div class="form-group">
+        <label for="password" style="margin: 5px;">Password</label>
+        <input
+            type = 'password'
+            class="form-control"
+            id = 'password'
+            name = "password"
+            placeholder="Enter your Password"
+        />
+    </div>
+    <br/>
+    <div style="position: relative; bottom: 5%; left: 37%;" class="container-fluid">
+    <button type="submit" class="btn btn-dark">Login!</button>
+</div>
+<p style="text-align: center; margin: 10px;">Not a member? <a href="/signup">Sign Up!</a></p>
+</form>
+</div>
+</div>
+
+{% block css %}
+<style>
+    body {
+        background: linear-gradient(to bottom,  #fff3ff, #fcd3f6);
+        height: 100vh;
+    }
+
+</style>
+{% endblock %}
+{% endblock %}

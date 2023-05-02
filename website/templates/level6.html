@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %} Level 6 {% endblock %}
+
+{% block content%}
+
+{% if user.stats.level == 5 %}
+
+<h2 align="center" style="margin-bottom: 50px; color: rgb(253, 203, 255); font-weight: bolder;"> Level 6! </h2>
+
+<div class="container-fluid">
+    <p class="site-description" style="font-size: larger; text-align: center; color: white;">
+        As an aspiring film-maker myself, i agree with what Hans Zimmer said.
+    </p>
+    <p class="site-description" style="font-size:x-large; text-align: center; color: white;"><span style="margin-bottom: 50px; background: linear-gradient(to top, #2596be, #2596be, #2596be, black);
+        -webkit-background-clip: text; background-clip: text;
+        -webkit-text-fill-color: transparent;">"Background score tells everything about foreground"</span>
+    </p>
+    <p class="site-description" style="font-size: larger; text-align: center; color: white;">
+        Sense the Background score and crack the 6-letter code - ______
+    </p>
+</div>
+
+<div class="container" style="margin-bottom: 50px;">
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <br>
+            <form method="post">
+                <div class="form-group d-flex justify-content-center">
+                <h4 style="color: #7c02a8; margin: 5px;">#</h4>
+                <input
+                    type = 'answer'
+                    class="form-control"
+                    id = 'answer'
+                    name = "answer"
+                    placeholder="Type in your Answer"
+                />
+                </div>
+                <br/>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-light">Go!</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% else %}
+    <h4> Access Denied </h4>
+    <a href="/"> <p> Go to Home </p> </a>
+{% endif %}
+
+{% block css %}
+<style>
+    body {
+    padding-top: 60px;
+    background-color: #20022b;
+    }
+</style>
+{% endblock %}
+
+{% endblock %}

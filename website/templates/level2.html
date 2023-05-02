@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %} Level 2 {% endblock %}
+
+{% block content%}
+
+{% if user.stats.level == 1 %}
+<h2 align="center" style="margin-bottom: 50px; background: linear-gradient(to right,  #a600ff, rgb(255, 149, 0));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;"> Level 2! </h2>
+<h2 align="center" style="margin-bottom: 50px; color: rgb(0, 0, 0);"> This is a <span style="background: linear-gradient(to right, #f3c0f9, rgb(255, 205, 186)); color: rgb(0, 0, 0);">Riddle</span>. Solve to move ahead! </h2>
+
+<div class="box">
+    <div class="container-box">
+        <p style="font-size: large;">On a lazy Sunday, the world seemed to be stuck in slow motion. To my surprise, the grass was green, the sky was blue, and time itself seemed to be taking a leisurely stroll.
+            Everything is going slowly except you who are trying desperately to solve this riddle. The birds outside danced to a meaningless and tuneless song just like this Paragraph.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <br>
+            <form method="post">
+                <label for="answer" style="font-size: larger; font-weight:600;" class="container-fluid">What is 
+                    <span style="background: linear-gradient(to right, #9800a9, rgb(179, 51, 0));
+                    -webkit-text-fill-color: transparent;
+                    -webkit-background-clip: text; background-clip: text;">This?</span>
+                </label>
+                <div class="form-group d-flex justify-content-center">
+                <input
+                    type = 'answer'
+                    class="form-control"
+                    id = 'answer'
+                    name = "answer"
+                    placeholder="Type in your Answer"
+                />
+                </div>
+                <br/>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-dark">Go!</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% else %}
+    <h4> Access Denied </h4>
+    <a href="/"> <p> Go to Home </p> </a>
+{% endif %}
+
+{% block css %}
+<style>
+    body {
+    padding-top: 60px;
+    }
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+        /* height: 100vh; */
+      }
+      
+      /* Set max-width to 80% of the viewport width and add padding */
+      .container-box {
+        max-width: 80%;
+        padding: 20px;
+        border: 2px solid black;
+        border-radius: 10px;
+      }
+      
+      /* Make the box responsive to smaller screens */
+      @media screen and (max-width: 600px) {
+        .container-box {
+          max-width: 100%;
+        }
+      }
+</style>
+{% endblock %}
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %} Deadend {% endblock %}
+
+{% block content%}
+
+{% if user.stats.level == 2 %}
+<h2 align="center" style="margin-bottom: 50px; color: aliceblue;"> Fill in The Blanks and the <span style="margin-bottom: 50px; background: linear-gradient(to top,  #ff80e1, rgb(255, 255, 255));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;"> The Dots</span> </h2>
+
+<div class="container-fluid">
+    <p class="site-description" style="font-size:x-large; text-align: center; color: white; font-weight: 500;">
+        Welp, the answer is right, 'You are <span style="color: red;">Dead</span>' This is a deadend.  ☠️
+    </p>
+</div>
+
+<div class="d-flex justify-content-center" style="margin: 50px;">
+    <a href="/{{user.id}}/{{user.stats.level}}/dd"><button type="submit" class="btn btn-light">Try again?</button></a>
+</div>
+{% else %}
+
+<div class="container-fluid">
+    <p class="site-description" style="font-size:x-large; text-align: center; color: white; font-weight: 500;">
+        The answer is right, Ironman fought and fought well!
+    </p>
+    <p class="site-description" style="font-size:x-large; text-align: center; color: white; font-weight: 500;">
+        But he lost his life, and so are you! This is a <span style="color: red;">Dead end. ☠️</span>
+    </p>
+</div>
+
+
+<div class="image-container">
+    <img src="/static/images/ironmandead.jpg" style="height:400px; max-width:600px;"  class="img-fluid"></a>
+  </div>
+  
+  <div class="d-flex justify-content-center" style="margin: 50px;">
+    <a href="/{{user.id}}/{{user.stats.level}}/dd"><button type="submit" class="btn btn-light">Try again?</button></a>
+</div>
+{% endif %}
+
+{% block css %}
+<style>
+    body {
+    padding-top: 60px;
+    background-color: #000000;
+    }
+    .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  max-width: 600px;
+  height: auto;
+  margin-top: 20px;
+}
+
+</style>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %} Level 5 {% endblock %}
+
+{% block content%}
+
+{% if user.stats.level == 4 %}
+
+<h2 align="center" style="margin-bottom: 50px; color: red; font-weight: bolder;"> Level 5! </h2>
+<h2 align="center" style="margin-bottom: 20px; color: aliceblue;"> The <span style="margin-bottom: 50px; color: red;">MKBHD</span> Shoe.</h2>
+
+<div class="container-fluid">
+    <p class="site-description" style="font-size: larger; text-align: center; color: white;">
+        Just when I'm thinking about building a puzzle for this level, my favourite tech-youtuber, MKBHD, released his first ever Shoe called, M251!
+        Checkout the video below to know more, its fun.
+    </p>
+</div>
+
+<div style="max-width: 560px; margin: auto; border-radius: 10px; overflow: hidden;">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/1eI8HpJtq-s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+<div style="text-align: center; font-size: 1.5em; max-width: 100%; color: aliceblue; margin-top: 10px;">
+    Now the question is, what would be the name of my shoe?
+</div>
+
+<div class="container" style="margin-bottom: 50px;">
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <br>
+            <form method="post">
+                <div class="form-group d-flex justify-content-center">
+                <input
+                    type = 'answer'
+                    class="form-control"
+                    id = 'answer'
+                    name = "answer"
+                    placeholder="Type in your Answer"
+                />
+                </div>
+                <br/>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-light">Go!</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% else %}
+    <h4> Access Denied </h4>
+    <a href="/"> <p> Go to Home </p> </a>
+{% endif %}
+
+{% block css %}
+<style>
+    body {
+    padding-top: 60px;
+    background-color: #000000;
+    }
+</style>
+{% endblock %}
+
+{% endblock %}

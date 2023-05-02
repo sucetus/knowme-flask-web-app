@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+
+{% block content%}
+
+{% if not user.is_authenticated %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <div class="profile-img">
+          <img src="static/images/khalid.jpg" alt="Profile Picture" class="img-fluid rounded-circle">
+          <h1 class="gradient-text">Know Me!</h1>
+        </div>
+      </div>
+    </div>
+</div>
+</br>
+<div class="container-fluid">
+    <h4 class="site-description"> Hi there 👋🏼 I'm Khalid, undergrad at IIIT Kancheepuram in Electronics Department. I'm much intrested in Computer Science and Software development.
+        I would describe my self as part-time artist and full-time learner. I do edit videos whenever I'm free (low-key youtuber there 😅).
+        Checkout my youtube channel other socials below.
+    </h4>
+</div>
+</br>
+<div class="container-fluid">
+    <div class="section-header">
+        <h3 class="gradient-text2">Why should you play?</h3>
+    </div>
+    <h4 class="site-description">
+        It's fun! So, why not?
+    </h4>
+</div>
+</br>
+<div class="container-fluid">
+    <div class="section-header">
+        <h3 class="gradient-text2">About the game and Rules</h3>
+    </div>
+    <h4 class="site-description">
+        <ul style="list-style: none;">
+        <li>There are 6 puzzles which you have to crack, to level up!</li>
+        <li>Clues are yours to find! Think, think, and think!!</li>
+        <li>It's a competitive game. Rankings are on the Leaderboard.</li>
+        <li>Once you start a level, timer will not stop even you exit/close the browser.</li>
+        <li>There can be deadends. In that case, you have to start that level again.</li>
+        </ul>
+    </h4>
+</div>
+</br>
+<div class="container-fluid">
+    <div class="section-header">
+        <h3 class="gradient-text2">My Socials</h3>
+    </div>
+    <div class="social-icons">
+        <a href="https://www.youtube.com" class="youtube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com" class="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com" class="twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://github.com" class="github"><i class="fab fa-github"></i></a>
+        <a href="mailto:thekhalid06@gmail.com" class="email"><i class="fas fa-envelope"></i></a>
+      </div>      
+</div>
+</br>
+<div class="container-fluid">
+    <div class="section-header">
+        <h3 class="gradient-text2">Before you start</h3>
+    </div>
+    <h4 class="site-description">
+        Biggest hint I can give you is, this hunt is all centered about me.
+        <li style="list-style: none;">Alright then, Good Luck!</li>
+    </h4>      
+</div>
+</br>
+<br>
+<div class="container-fluid">
+    <h4 style="text-align: center;"><a href="/login">Login</a> / <a href="/signup">Sign Up</a> to play!</h4>
+</div>
+<br>
+<br>
+<div class="container-fluid">
+    <h4 style="text-align: center;"><a href="https://www.buymeacoffee.com/khalid06" style="color: burlywood;">Buy me a Coffee! 🧋</a></h4>
+</div>
+
+{% else %}
+    {% if user.name == 'Admin@knowme' %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="profile-img">
+                    <img src="static/images/khalid.jpg" alt="Profile Picture" class="img-fluid rounded-circle">
+                    <h1 class="gradient-text">Know Me!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h4 class="site-description" style="margin-bottom: 20px;">Hey there, admin! You can access the progress of all the users and can track & analyze from the dashboard below</h4>
+    <h4 class="site-description" style="margin-bottom: 20px;"><a href="/admin-dashboard">Admin Dashboard</a></h4>
+    <h4 class="site-description" style="margin-bottom: 20px;">I'd love for you to share your thoughts about this website at any of my contacts.</h4>
+<div class="container-fluid">
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/khalidmohammad06/" class="linkedin"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/the-khalid" class="github"><i class="fab fa-github"></i></a>
+        <a href="mailto:thekhalid06@gmail.com" class="email"><i class="fas fa-envelope"></i></a>
+        <a href="https://twitter.com/bannukun" class="twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com/@bannukun" class="youtube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/bannukun/" class="instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+</div>
+
+    {% elif user.stats.level == 0 %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <div class="profile-img">
+                        <img src="static/images/khalid.jpg" alt="Profile Picture" class="img-fluid rounded-circle">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container-fluid">
+            <div class="section-header">
+                <h3 class="gradient-text2">About the game and Rules</h3>
+            </div>
+            <h4 class="site-description">
+                <ul style="list-style: none;">
+                <li>There are 6 puzzles which you have to crack, to level up!</li>
+                <li>Clues are yours to find! Think, think, and think!!</li>
+                <li>It's a competitive game. Rankings are on the <a href="/{{user.id}}/dashboard">Leaderboard</a>.</li>
+                <li>Once you start a level, timer will not stop even you exit/close the browser.</li>
+                <li>There can be deadends. In that case, you have to start that level again.</li>
+                </ul>
+            </h4>
+        </div>
+        <div class="container-fluid">
+            <div class="section-header">
+                <h3 class="gradient-text2">Let's play then, shall we?</h3>
+                <br>
+                <a href="/{{user.id}}/{{user.stats.level}}/starttimer" style="font-weight:bold;"><button type="button" class="btn btn-dark">START</button></a>          
+            </div>
+        </div>
+        
+    {% elif user.stats.level == 2 or user.stats.level == 4 %}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="profile-img">
+                    <img src="static/images/khalid.jpg" alt="Profile Picture" class="img-fluid rounded-circle">
+                    <h1 class="gradient-text">Know Me!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4 class="site-description" style="margin-bottom: 20px;">
+        Good going, you are on level {{user.stats.level}}. Keep up with the pace!
+    </h4>
+    <div class="container-fluid">
+        <div class="section-header">
+            <a href="/{{user.id}}/{{user.stats.level}}/dd"><button type="button" class="btn btn-dark">Resume where you left</button></a>
+        </div>
+    </div>
+    
+    {% elif user.stats.level >= 6 %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="profile-img">
+                    <img src="static/images/khalid.jpg" alt="Profile Picture" class="img-fluid rounded-circle">
+                    <h1 class="gradient-text">Know Me!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h4 class="site-description" style="margin-bottom: 20px;">You solved the puzzle successfully! Hope you got to know me a little better ✌🏼</h4>
+    <h4 class="site-description" style="margin-bottom: 20px;">I'd love for you to share your thoughts about this website at any of my contacts.</h4>
+<div class="container-fluid">
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/khalidmohammad06/" class="linkedin"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/the-khalid" class="github"><i class="fab fa-github"></i></a>
+        <a href="mailto:thekhalid06@gmail.com" class="email"><i class="fas fa-envelope"></i></a>
+        <a href="https://twitter.com/bannukun" class="twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com/@bannukun" class="youtube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/bannukun/" class="instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+</div>
+    {% else %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="profile-img">
+                    <img src="static/images/khalid.jpg" alt="Profile Picture" class="img-fluid rounded-circle">
+                    <h1 class="gradient-text">Know Me!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4 class="site-description" style="margin-bottom: 20px;">
+        Good going, you are on level {{user.stats.level}}. Keep up with the pace!
+    </h4>
+    <div class="container-fluid">
+        <div class="section-header">
+            <a href="/{{user.id}}/level{{user.stats.level+1}}"><button type="button" class="btn btn-dark">Resume where you left</button></a>
+        </div>
+    </div>
+        
+    {% endif %}
+
+
+{% endif %}
+
+<div class="container-fluid fixed-bottom bg-dark text-white py-2 banner">
+    <div class="text-center">
+       Made with <i class="fas fa-heart"></i> by <a>Khalid</a>
+    </div>
+</div>
+
+{% if not user.is_authenticated %}
+{% block css %}
+<style>
+    body {
+        background: linear-gradient(to bottom, #fca911,#ffefd2,white, white, white, white, white);
+    }
+</style>
+{% endblock %}
+{% endif %}
+{% endblock %}

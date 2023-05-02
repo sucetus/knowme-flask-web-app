@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %} Level 1 {% endblock %}
+
+{% block content%}
+
+{% if user.stats.level == 0 %}
+
+<div class="container-fluid" style="margin-top: 50px;">
+    <h2 align="center" style="margin-bottom: 50px; background: linear-gradient(to right,  #e920ff, rgb(41, 57, 231));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;"> Level 1! </h2>
+    <h2 align="center" style="color: aliceblue;"> What is my <span style="background: linear-gradient(to right, #f3c0f9, rgb(123, 71, 244)); color: rgb(0, 0, 0);">Zodiac</span> Sign? </h2>
+    <div class="container-fluid">
+    <h4 class="site-description" style="margin-bottom: 20px;">
+        It's the first thing in my <span style="background: linear-gradient(to right, #a500ae, #f317ff, #fffb00);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;">Bio</span>, you can't miss this!
+    </h4>
+</div>
+    <img class="zodiac-sign" src="/static/images/libra.png" style="top: 18%; left: 10%; transform: rotate(20deg); z-index: -1;">
+    <img class="zodiac-sign" src="/static/images/taurus.png" style="top: 50%; left: 35%; transform: rotate(-30deg);">
+    <img class="zodiac-sign" src="/static/images/aquarius.png" style="top: 70%; left: 60%; transform: rotate(10deg);">
+    <img class="zodiac-sign" src="/static/images/gemini.png" style="top: 80%; left: 80%; transform: rotate(40deg);">
+    <img class="zodiac-sign" src="/static/images/sagittarius.png" style="top: 10%; left: 80%; transform: rotate(-10deg);">
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <br>
+                <form method="post">
+                    <div class="form-group d-flex justify-content-center">
+                    <input
+                        type = 'answer'
+                        class="form-control"
+                        id = 'answer'
+                        name = "answer"
+                        placeholder="Type in your Answer"
+                    />
+                    </div>
+                    <br/>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-light">Go!</button>
+                      </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <img class="zodiac-sign" src="/static/images/cancer.png" style="top: 80%; left: 20%; transform: rotate(-40deg);">
+</div>
+{% else %}
+    <h4> Access Denied </h4>
+    <a href="/"> <p> Go to Home </p> </a>
+{% endif %}
+
+{% block css %}
+<style>
+    body {
+    padding-top: 60px;
+    background-color: #1d1c1c;
+    }
+    .zodiac-sign {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            transform: rotate(45deg);
+
+        }
+        .site-description {
+    text-align: center;
+    margin: 0 auto;
+    color: aliceblue;
+    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+@media (max-width: 767px) {
+    .site-description {
+      font-size: 16px;
+      padding: 0 20px;
+    }
+  }
+  
+</style>
+{% endblock %}
+{% endblock %}

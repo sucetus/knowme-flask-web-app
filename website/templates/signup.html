@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %} Signup {% endblock %}
+
+{% block content %}
+
+
+<div class="container-fluid logindiv">
+    <div class="logindiv2">
+        <form method="post">
+            <h3 align="center">Sign Up!</h3>
+        
+            <div class="form-group">
+                <label for="email" style="margin: 5px;">Email Address</label>
+                <input
+                    type = 'email'
+                    class="form-control"
+                    id = 'email'
+                    name = "email"
+                    placeholder="Enter your Email"
+                />
+            </div>
+        
+            <div class="form-group">
+                <label for="name" style="margin: 5px;">Name</label>
+                <input
+                    type = 'name'
+                    class="form-control"
+                    id = 'name'
+                    name = "name"
+                    placeholder="Enter your Username"
+                />
+            </div>
+        
+            <div class="form-group">
+                <label for="password1" style="margin: 5px;">Password</label>
+                <input
+                    type = 'password'
+                    class="form-control"
+                    id = 'password1'
+                    name = "password1"
+                    placeholder="Enter your Password (Min. 5 characters)"
+                />
+            </div>
+        
+            <div class="form-group">
+                <label for="password2" style="margin: 5px;">Confirm Password</label>
+                <input
+                    type = 'password'
+                    class="form-control"
+                    id = 'password2'
+                    name = "password2"
+                    placeholder="Confirm Password"
+                />
+            </div>
+        
+            <br/>
+            <div style="position: relative; bottom: 5%; left: 33%;" class="container-fluid">
+            <button type="submit" class="btn btn-dark" style="border-radius: 6px;">Sign Up</button>
+            </div>
+        </form>
+    </div>
+    </div>
+    
+    {% block css %}
+    <style>
+        body {
+            background: linear-gradient(to top,  #fff3ff, #fcd3f6);
+            height: 100vh;
+        }
+
+    </style>
+    {% endblock %}
+
+{% endblock %}

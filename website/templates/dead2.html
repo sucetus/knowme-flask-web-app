@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+
+{% block content%}
+
+<h4 align="center" style="color: azure; margin-bottom: 50px; margin-top: 10px;"> That was Marvelous of you! 🥳</h4>
+<p align="center" style="margin-bottom: 20px; color: azure; font-size: larger;"> Talking about the <span style="margin-bottom: 50px; color: red; font-weight: bolder;"> MARVEL </span>, are you familiar with MCU? I used to love it as a kid!</p>
+<p align="center" style="margin-bottom: 50px; color: azure; font-size: larger;"> If you know Ironman played by RDJ, and Spiderman played by Tom Holland, you must know how emotionally characters are connected!</p>
+<h4 align="center" style="color: azure;"> Now, to proceed further <span  class="container content" style="margin-bottom: 15px; background: linear-gradient(to right, #f3c0f9, rgb(255, 205, 186)); color: rgb(0, 0, 0);">select a character for youself to fight</span></h4>
+<p align="center" style="margin-bottom: 50px; color: azure; font-size: larger;"> Choose wisely, they have to fight</p>
+<p align="center" style="margin-top: 50px; color: azure; font-size: large; font-weight: 500;"> Click on the image of character to select. </p>
+
+<div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-sm-3 mb-4">
+        <a href="/{{user.id}}/{{user.stats.level}}/rdj/starttimer"><img src="/static/images/rdj.jpeg" width="300" height="500" class="img-fluid"></a>
+      </div>
+      <div class="col-sm-3 mb-4">
+        <a href="/{{user.id}}/{{user.stats.level}}/tom/starttimer"><img src="/static/images/spider.jpeg" width="300" height="500" class="img-fluid"></a>
+      </div>
+    </div>
+</div>
+
+  {% block css %}
+  <style>
+      body {
+      padding-top: 60px;
+      background-color: #000000;
+      }
+  </style>
+  {% endblock %}
+
+{% endblock %}>

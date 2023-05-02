@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block title %} Stats {% endblock %}
+
+{% block content%}
+
+    <h2 align="center" style="background: linear-gradient(to right, #a802ba, rgb(195, 58, 4));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; font-weight: 600;">{{ user.name }}'s stats</h2>
+</br>
+    <h4 align="center"> Level - {{ stat.level }}</h4>
+    
+    {% if stat.level==0 %}
+        <h4 align="center"> You don't have any stats to display. Go play to read your stats. </h4>
+    {% else %}
+    <p align="center" style="font-size: larger;">Your attributes for each level</p>
+        <table>
+            <tr>
+                    <th> # </th>
+                {% for i in range(stat.level) %}
+                    <th>Level {{ i+1 }}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th> Time </th>
+                {% for x in time %}
+                    <td>{{ x }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th> Attempts </th>
+                {% for y in atts %}
+                    <td>{{ y }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    {% endif %}
+    </br>
+    <hr style="border: solid;">
+    <h2 align="center" style="background: linear-gradient(to right, #a802ba, rgb(195, 58, 4));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; font-weight: 600;">Global Leaderboard</h2>
+    </br>
+    <table>
+        <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Username</th>
+            <th>Level</th>
+            <th>Average time per level</th>
+            <th>Average number of attempts</th>
+        </tr>
+        </thead>
+    <tbody>
+    {% for li in list_lb %}
+        {% if li[1] != 0 %}
+        <tr>
+        {% if li[0] == user.name %}
+            <td style="font-weight: 600;">{{ loop.index }}</td>
+            <td style="font-weight: 600;">{{ li[0] }}</td>
+            <td style="font-weight: 600;">{{ li[1] }}</td>
+            <td style="font-weight: 600;">{{ li[2] }}</td>
+            <td style="font-weight: 600;">{{ li[3] }}</td>
+        {% else %}
+            <td >{{ loop.index }}</td>
+            <td>{{ li[0] }}</td>
+            <td>{{ li[1] }}</td>
+            <td>{{ li[2] }}</td>
+            <td>{{ li[3] }}</td>
+        {% endif %}
+        </tr>
+        {% endif %}
+      {% endfor %}
+
+    </tbody>
+  </table>
+<br>
+<br>
+  {% for li in list_lb %}
+  {% if li[1] != 0 %}
+      {% if li[0] == user.name %}
+      <div class="container-fluid site-description" style="max-width: 400px;">
+          <h4 style="text-align: center; background: linear-gradient(to right, #f3c0f9, rgb(145, 98, 255)); color: rgb(0, 0, 0);">Your current rank is {{loop.index}} </h4>
+        </div>
+      {% endif %}
+      {% endif %}
+  {% endfor %}
+
+
+  {% block css %}
+  <style>
+      body {
+      padding-top: 60px;
+      }
+      table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    @media (max-width: 768px) {
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+  {% endblock %}
+{% endblock %}

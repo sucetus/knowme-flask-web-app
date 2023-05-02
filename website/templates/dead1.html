@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+
+{% block content%}
+
+<h4 align="center" style="color: azure; margin-bottom: 50px; margin-top: 10px;">Well yeah, that was actually 'Riddle' 😝</h4>
+<p align="center" style="margin-bottom: 50px; color: azure; font-size: large;"> Alright! Good going. As this whole puzzle is themed around me, here's a quick one on my favourite. </p>
+<h2 align="center"> <span  class="container content" style="margin-bottom: 50px; background: linear-gradient(to right, #f3c0f9, rgb(255, 205, 186)); color: rgb(0, 0, 0);"> Who would be my Favourite football Player? </span> </h2>
+<p align="center" style="margin-top: 50px; color: azure; font-size: large; font-weight: 500;"> Click on the image of player to select. </p>
+
+</br>
+
+<div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-sm-3 mb-4">
+        <a href="/{{user.id}}/{{user.stats.level}}/messi/starttimer"><img src="/static/images/messi.jpeg" width="300" height="500" class="img-fluid"></a>
+      </div>
+      <div class="col-sm-3 mb-4">
+        <a href="/{{user.id}}/{{user.stats.level}}/cr7/starttimer"><img src="/static/images/cr7.jpeg" width="300" height="500" class="img-fluid"></a>
+      </div>
+      <div class="col-sm-3 mb-4">
+        <a href="/{{user.id}}/{{user.stats.level}}/mbappe/starttimer"><img src="/static/images/mbappe.jpeg" width="300" height="500" class="img-fluid"></a>
+      </div>
+      <div class="col-sm-3 mb-4">
+        <a href="/{{user.id}}/{{user.stats.level}}/neymar/starttimer"><img src="/static/images/neymar.jpeg" width="300" height="500" class="img-fluid"></a>
+      </div>
+    </div>
+  </div>
+    
+{% block css %}
+  <style>
+    body {
+    padding-top: 60px;
+    background-color: black;
+    }
+</style>
+{% endblock %}
+{% endblock %}
