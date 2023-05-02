@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, session
 from .models import *
 from datetime import datetime
 from flask_login import login_required, login_user, logout_user, current_user
@@ -88,7 +88,10 @@ def admin_dashboard():
             list_lb.append(temp)
     return render_template("admin.html", user=current_user, list_lb=list_lb, n=len(attr))
 
-
+def timesec(start_time_str, end_time_str):
+    start_time = datetime.strptime(start_time_str.strftime('%Y-%m-%d %H:%M:%S'), "%Y-%m-%d %H:%M:%S")
+    end_time = datetime.strptime(end_time_str.strftime('%Y-%m-%d %H:%M:%S'), "%Y-%m-%d %H:%M:%S")
+    return (end_time - start_time).total_seconds()
 
 
 @views.route('<id>/<lvl>/starttimer')
@@ -123,8 +126,7 @@ def level1(id):
         if answer.lower() == "libra":
             if stat.level == 0:
                 end_time = datetime.now()
-                timeDiff = end_time - datetime.strptime(str(user.buffertime), "%Y-%m-%d %H:%M:%S.%f%z")
-                time_diff_seconds = timeDiff.total_seconds()
+                time_diff_seconds = timesec(user.buffertime, end_time)
 
                 stat.sumoftimes = stat.sumoftimes + time_diff_seconds
                 stat.sumofattempts = stat.sumofattempts + user.bufferattempt + 1
@@ -165,8 +167,7 @@ def level2(id):
         if answer.lower() == "riddle":
             if stat.level == 1:
                 end_time = datetime.now()
-                timeDiff = end_time - datetime.strptime(str(user.buffertime), "%Y-%m-%d %H:%M:%S.%f")
-                time_diff_seconds = timeDiff.total_seconds()
+                time_diff_seconds = timesec(user.buffertime, end_time)
 
                 stat.sumoftimes = stat.sumoftimes + time_diff_seconds
                 stat.sumofattempts = stat.sumofattempts + user.bufferattempt + 1
@@ -221,8 +222,7 @@ def level3(id):
             if ans.lower()=='good':
                 if stat.level == 2:
                     end_time = datetime.now()
-                    timeDiff = end_time - datetime.strptime(str(user.buffertime), "%Y-%m-%d %H:%M:%S.%f")
-                    time_diff_seconds = timeDiff.total_seconds()
+                    time_diff_seconds = timesec(user.buffertime, end_time)
 
                     stat.sumoftimes = stat.sumoftimes + time_diff_seconds
                     stat.sumofattempts = stat.sumofattempts + user.bufferattempt + 1
@@ -264,8 +264,7 @@ def level4(id):
         if answer.lower() == "marvel":
             if stat.level == 3:
                 end_time = datetime.now()
-                timeDiff = end_time - datetime.strptime(str(user.buffertime), "%Y-%m-%d %H:%M:%S.%f")
-                time_diff_seconds = timeDiff.total_seconds()
+                time_diff_seconds = timesec(user.buffertime, end_time)
 
                 stat.sumoftimes = stat.sumoftimes + time_diff_seconds
                 stat.sumofattempts = stat.sumofattempts + user.bufferattempt + 1
@@ -309,8 +308,7 @@ def level5(id):
             if answer.lower() == "m122":
                 if stat.level == 4:
                     end_time = datetime.now()
-                    timeDiff = end_time - datetime.strptime(str(user.buffertime), "%Y-%m-%d %H:%M:%S.%f")
-                    time_diff_seconds = timeDiff.total_seconds()
+                    time_diff_seconds = timesec(user.buffertime, end_time)
 
                     stat.sumoftimes = stat.sumoftimes + time_diff_seconds
                     stat.sumofattempts = stat.sumofattempts + user.bufferattempt + 1
@@ -358,8 +356,7 @@ def level6(id):
         if answer.lower() == "20022b":
             if stat.level == 5:
                 end_time = datetime.now()
-                timeDiff = end_time - datetime.strptime(str(user.buffertime), "%Y-%m-%d %H:%M:%S.%f")
-                time_diff_seconds = timeDiff.total_seconds()
+                time_diff_seconds = timesec(user.buffertime, end_time)
 
                 stat.sumoftimes = stat.sumoftimes + time_diff_seconds
                 stat.sumofattempts = stat.sumofattempts + user.bufferattempt + 1
@@ -416,3 +413,14 @@ def ded(id, lvl):
         return render_template('dead1.html', user = current_user)
     else:
         return render_template('dead2.html', user = current_user)
+    
+@views.route('delete/<user_id>')
+def delete_user(user_id):
+    user = User.query.get_or_404(user_id)
+    stats = Stats.query.filter_by(author=user_id).first()
+    logout_user()
+    db.session.delete(user)
+    db.session.delete(stats)
+    db.session.commit()
+    flash('Account successfully deleted!', category='successs')
+    return redirect(url_for('views.home'))
