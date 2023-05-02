@@ -14,7 +14,8 @@ def create_app():
     app = Flask(__name__)
     
     app.config['SECRET_KEY'] = 'TREASUREHUNTR'
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+    # postgres://knowme_postgresql_user:6jp6v2hGpJD3VFlv9OgrgyjugDnnzwcG@dpg-ch8n151jvhtqmk2bpo70-a.oregon-postgres.render.com/knowme_postgresql
     db.init_app(app)
 
     from .views import views
