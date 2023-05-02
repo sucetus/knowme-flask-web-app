@@ -123,7 +123,7 @@ def level1(id):
         if answer.lower() == "libra":
             if stat.level == 0:
                 end_time = datetime.now()
-                timeDiff = end_time - datetime.strptime(str(user.buffertime), "%Y-%m-%d %H:%M:%S.%f")
+                timeDiff = end_time - datetime.strptime(str(user.buffertime), "%Y-%m-%dT%H:%M:%S.%f%z")
                 time_diff_seconds = timeDiff.total_seconds()
 
                 stat.sumoftimes = stat.sumoftimes + time_diff_seconds
