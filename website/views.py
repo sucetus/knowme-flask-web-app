@@ -26,6 +26,8 @@ def format_time(seconds):
 @views.route('/<id>/dashboard')
 def showStats(id):
     user = User.query.filter_by(id=id).first()
+    if user.name == 'Admin@knowme':
+        return redirect(url_for('views.admin_dashboard'))
     stat = user.stats
     timeArray = str(stat.times)
     time = timeArray.split(',')
