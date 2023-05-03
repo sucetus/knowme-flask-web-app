@@ -129,7 +129,7 @@ def level1(id):
                 time_diff_seconds = timesec(user.buffertime, end_time)
 
                 stat.sumoftimes = stat.sumoftimes + time_diff_seconds
-                stat.sumofattempts = stat.sumofattempts + user.bufferattempt + 1
+                stat.sumofattempts = stat.sumofattempts + user.bufferattempts + 1
 
                 timeArray = str(stat.times)
                 time = timeArray.split(',')
@@ -138,7 +138,7 @@ def level1(id):
 
                 attArray = str(stat.attempts)
                 att = attArray.split(',')
-                att.append(user.bufferattempt+1)
+                att.append(user.bufferattempts+1)
                 attempts = ','.join(str(y) for y in att)
 
                 print(times)
@@ -151,7 +151,7 @@ def level1(id):
                 db.session.commit()
             return redirect(url_for('views.buffer'))
         else:
-            user.bufferattempt = user.bufferattempt + 1
+            user.bufferattempts = user.bufferattempts + 1
             db.session.commit()
             flash('Oops, that is not my sign :(', category='error')
 
@@ -170,7 +170,7 @@ def level2(id):
                 time_diff_seconds = timesec(user.buffertime, end_time)
 
                 stat.sumoftimes = stat.sumoftimes + time_diff_seconds
-                stat.sumofattempts = stat.sumofattempts + user.bufferattempt + 1
+                stat.sumofattempts = stat.sumofattempts + user.bufferattempts + 1
 
                 timeArray = str(stat.times)
                 time = timeArray.split(',')
@@ -179,7 +179,7 @@ def level2(id):
 
                 attArray = str(stat.attempts)
                 att = attArray.split(',')
-                att.append(user.bufferattempt+1)
+                att.append(user.bufferattempts+1)
                 attempts = ','.join(str(y) for y in att)
 
                 print(times)
@@ -193,7 +193,7 @@ def level2(id):
             
             return render_template('dead1.html', user = current_user)
         else:
-            user.bufferattempt = user.bufferattempt + 1
+            user.bufferattempts = user.bufferattempts + 1
             db.session.commit()
             flash('Oops, that is not the correct answer :(', category='error')
 
@@ -209,11 +209,11 @@ def level3(id):
         if str(goat)=='messi' or str(goat)=='mbappe' or str(goat)=='neymar':
             ans = str(request.form.get('answer'))
             if ans.lower()=='dead':
-                user.bufferattempt = user.bufferattempt + 1
+                user.bufferattempts = user.bufferattempts + 1
                 db.session.commit()
                 return render_template('end.html', user=current_user)
             else:
-                user.bufferattempt = user.bufferattempt + 1
+                user.bufferattempts = user.bufferattempts + 1
                 db.session.commit()
                 flash('It\'s not the right answer')
             return render_template('level3.html', user=current_user, goat=goat)
@@ -225,7 +225,7 @@ def level3(id):
                     time_diff_seconds = timesec(user.buffertime, end_time)
 
                     stat.sumoftimes = stat.sumoftimes + time_diff_seconds
-                    stat.sumofattempts = stat.sumofattempts + user.bufferattempt + 1
+                    stat.sumofattempts = stat.sumofattempts + user.bufferattempts + 1
 
                     timeArray = str(stat.times)
                     time = timeArray.split(',')
@@ -234,7 +234,7 @@ def level3(id):
 
                     attArray = str(stat.attempts)
                     att = attArray.split(',')
-                    att.append(user.bufferattempt+1)
+                    att.append(user.bufferattempts+1)
                     attempts = ','.join(str(y) for y in att)
 
                     print(times)
@@ -248,7 +248,7 @@ def level3(id):
 
                 return render_template('buffer.html', user=current_user)
             else:
-                user.bufferattempt = user.bufferattempt + 1
+                user.bufferattempts = user.bufferattempts + 1
                 db.session.commit()
                 flash('It\'s not the right answer')
             return render_template('level3.html', user=current_user)
@@ -267,7 +267,7 @@ def level4(id):
                 time_diff_seconds = timesec(user.buffertime, end_time)
 
                 stat.sumoftimes = stat.sumoftimes + time_diff_seconds
-                stat.sumofattempts = stat.sumofattempts + user.bufferattempt + 1
+                stat.sumofattempts = stat.sumofattempts + user.bufferattempts + 1
 
                 timeArray = str(stat.times)
                 time = timeArray.split(',')
@@ -276,7 +276,7 @@ def level4(id):
 
                 attArray = str(stat.attempts)
                 att = attArray.split(',')
-                att.append(user.bufferattempt+1)
+                att.append(user.bufferattempts+1)
                 attempts = ','.join(str(y) for y in att)
 
                 print(times)
@@ -290,7 +290,7 @@ def level4(id):
 
             return render_template('dead2.html', user = current_user)
         else:
-            user.bufferattempt = user.bufferattempt + 1
+            user.bufferattempts = user.bufferattempts + 1
             db.session.commit()
             flash('Oops, that is not the answer :(', category='error')
 
@@ -311,7 +311,7 @@ def level5(id):
                     time_diff_seconds = timesec(user.buffertime, end_time)
 
                     stat.sumoftimes = stat.sumoftimes + time_diff_seconds
-                    stat.sumofattempts = stat.sumofattempts + user.bufferattempt + 1
+                    stat.sumofattempts = stat.sumofattempts + user.bufferattempts + 1
 
                     timeArray = str(stat.times)
                     time = timeArray.split(',')
@@ -320,7 +320,7 @@ def level5(id):
 
                     attArray = str(stat.attempts)
                     att = attArray.split(',')
-                    att.append(user.bufferattempt+1)
+                    att.append(user.bufferattempts+1)
                     attempts = ','.join(str(y) for y in att)
 
                     print(times)
@@ -334,14 +334,14 @@ def level5(id):
 
                 return redirect(url_for('views.buffer'))
             else:
-                user.bufferattempt = user.bufferattempt + 1
+                user.bufferattempts = user.bufferattempts + 1
                 db.session.commit()
                 flash('Oops, that is not the answer :(', category='error')
         else:
             if answer.lower() == "m122":
                 return render_template('end.html', user = current_user)
             else:
-                user.bufferattempt = user.bufferattempt + 1
+                user.bufferattempts = user.bufferattempts + 1
                 db.session.commit()
                 flash('Oops, that is not the answer :(', category='error')
 
@@ -359,7 +359,7 @@ def level6(id):
                 time_diff_seconds = timesec(user.buffertime, end_time)
 
                 stat.sumoftimes = stat.sumoftimes + time_diff_seconds
-                stat.sumofattempts = stat.sumofattempts + user.bufferattempt + 1
+                stat.sumofattempts = stat.sumofattempts + user.bufferattempts+ 1
 
                 timeArray = str(stat.times)
                 time = timeArray.split(',')
@@ -368,7 +368,7 @@ def level6(id):
                 
                 attArray = str(stat.attempts)
                 att = attArray.split(',')
-                att.append(user.bufferattempt+1)
+                att.append(user.bufferattempts+1)
                 attempts = ','.join(str(y) for y in att)
 
                 print(times)
@@ -382,7 +382,7 @@ def level6(id):
 
             return render_template('win.html', user = current_user)
         else:
-            user.bufferattempt = user.bufferattempt + 1
+            user.bufferattempts = user.bufferattempts + 1
             db.session.commit()
             flash('Oops, that is not the answer :(', category='error')
 
@@ -391,7 +391,7 @@ def level6(id):
 @views.route('<id>/<lvl>/<goat>/starttimer', endpoint='start_timer')
 def timer(id, lvl, goat):
     user = User.query.filter_by(id=id).first()
-    if user.bufferattempt == 0:
+    if user.bufferattempts == 0:
         user.buffertime = datetime.now()
     user.goat = goat
     print(goat)
