@@ -9,7 +9,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String)
     name = db.Column(db.String(150), unique=True)
     buffertime = db.Column(db.DateTime(timezone=True))
-    bufferattempts = db.Column(db.Integer)
+    bufferattempt = db.Column(db.Integer)
     goat = db.Column(db.String(150))
     stats = db.relationship('Stats', backref='user', uselist=False)
 
