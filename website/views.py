@@ -49,7 +49,7 @@ def admin_dashboard():
     list_lb = []
     lb_stats = db.session.query(Stats, User).join(User).order_by(Stats.level.desc(), Stats.sumoftimes.asc(), Stats.sumofattempts.asc()).all()
     for lb_stat, userlb in lb_stats:
-        if lb_stat.level != 0:
+        if lb_stat.level == 6:
             timeArray = str(lb_stat.times)
             time = timeArray.split(',')
             times = np.array([int(float(x)) for x in time if x is not ""])

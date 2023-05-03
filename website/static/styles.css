@@ -135,6 +135,11 @@ body {
   border-radius: 10px;
   box-shadow: 0px 0px 10px #ccc;
   }
+  @media screen and (max-width: 600px) {
+    .logindiv2 {
+      max-width: 100%;
+    }
+  }
 
   .flashes {
     display: flex;
