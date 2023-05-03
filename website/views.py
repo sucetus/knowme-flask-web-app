@@ -55,15 +55,35 @@ def admin_dashboard():
             att = attArray.split(',')
             atts = np.array([int(float(x)) for x in att if x is not ""])
             details = cthink = creativity = intel = knowldg = persp = curious = persev = athink = 0
-            cthink = times[0] < 150 + times[4] < 350 + times[5] < 360
-            details = atts[0] < 3 + atts[2] < 3 + atts[3] < 3 + atts[5] < 3
-            creativity = times[1] < 150 + atts[3] < 3 + times[5] < 360
-            intel = atts[1] < 3 + atts[2] < 3 + atts[4] < 3 + atts[5] < 3
-            knowldg = atts[2] < 3 + atts[3] < 3 + times[4] < 300 + times[5] < 360
-            persp = times[3] < 200 + times[4] < 300
-            curious = atts[3] < 3 + times[4] < 300 + times[5] < 360
-            persev = times[3] < 200 + times[4] < 300 + times[5] < 360
-            athink = atts[3] < 3 + atts[4] < 3 + atts[5] < 3
+            cthink += 1 if times[0] < 150 else 0
+            cthink += 1 if times[4] < 350 else 0
+            cthink += 1 if times[5] < 360 else 0
+            details += 1 if atts[0] < 3 else 0
+            details += 1 if atts[2] < 3 else 0
+            details += 1 if atts[3] < 3 else 0
+            details += 1 if atts[5] < 3 else 0
+            creativity += 1 if times[1] < 150 else 0
+            creativity += 1 if atts[3] < 3 else 0
+            creativity += 1 if times[5] < 360 else 0
+            intel += 1 if atts[1] < 3 else 0
+            intel += 1 if atts[2] < 3 else 0
+            intel += 1 if atts[4] < 3 else 0
+            intel += 1 if atts[5] < 3 else 0
+            knowldg += 1 if atts[2] < 3 else 0
+            knowldg += 1 if atts[3] < 3 else 0
+            knowldg += 1 if times[4] < 300 else 0
+            knowldg += 1 if times[5] < 360 else 0
+            persp += 1 if times[3] < 200 else 0
+            persp += 1 if times[4] < 300 else 0
+            curious += 1 if atts[3] < 3 else 0
+            curious += 1 if times[4] < 300 else 0
+            curious += 1 if times[5] < 360 else 0
+            persev += 1 if times[3] < 200 else 0
+            persev += 1 if times[4] < 300 else 0
+            persev += 1 if times[5] < 360 else 0
+            athink += 1 if atts[3] < 3 else 0 
+            athink += 1 if atts[4] < 3 else 0
+            athink += 1 if atts[5] < 3 else 0
             attr = []
             x = 'Great Critical Thinking' if cthink == 3 else ('Critical Thinking' if cthink > 0 else '')
             attr.append(x)
